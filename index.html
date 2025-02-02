@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Construction Company</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #0a1f44;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        header nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero img {
+            display: none;
+        }
+
+        .hero img.active {
+            display: block;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .hero button {
+            background-color: #f8c300;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #0a1f44;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background-color: #d4a800;
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+
+
+
+        .projects-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        }
+
+        .projects {
+            background-color: #f5f5f5;
+            padding: 60px 20px;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent image sizing */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+    .fixed-size {
+        max-width: 100%; /* Ensure the image does not exceed the container width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure the image covers the area without distortion */
+    }
+
+    /* Responsive design for mobile */
+    @media (max-width: 768px) {
+        .projects-container {
+            flex-direction: column;
+        }
+
+        .project {
+            max-width: 100%; /* Ensure the project takes full width on mobile */
+        }
+        
+    }
+        /* Footer Section */
+        footer {
+            background-color: #0a1f44;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+         /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            header nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            
+            .hero {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 24px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            header .logo {
+                font-size: 18px;
+            }
+
+            .services-container {
+                gap: 10px;
+            }
+        }
+
+
+        /* Contact Section */
+    .contact {
+        background-color: #f5f5f5;
+        padding: 60px 20px;
+    }
+
+    .contact h2 {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .contact-item {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        text-align: center;
+    }
+
+    .contact-item i {
+        font-size: 32px;
+        color: #0a1f44;
+        margin-bottom: 15px;
+    }
+
+    .contact-item h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .contact-item p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 5px 0;
+    }
+
+    .contact-item a {
+        color: #0a1f44;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+        color: #f8c300;
+        text-decoration: underline;
+    }
+
+    </style>
+</head>
+<body>
+
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">GRAPSAN PVT. LTD.</div>
+        <nav>
+            <a href="#"><u>Home</u></a>
+            <a href="#about"><u>About</u></a>
+            <a href="#contact"><u>Contact</u></a>
+        </nav>
+    </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="pipes in water side view copy.jpg" height = 400 alt="Slide 1" class="active">
+            <img src="damar-road-construction copy.jpg" height = 400 alt="Slide 2" class="inactive">
+            <img src="think gas cng copy.jpg" height = 400 alt="Slide 3" class="inactive">
+            <img src="cm rise building copy.jpeg"height = 400  alt="Slide 4" class="inactive">
+            <!-- <div class="hero-content">
+                <h1>Leading the way in infrastructure development and Energy.</h1>
+                <button>Learn More</button>
+            </div> -->
+        </section>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a leading construction company dedicated to delivering high-quality infrastructure projects across various sectors. With years of experience, we have built a reputation for excellence, innovation, and reliability.</p>
+    </section>
+    
+
+
+       <!-- Our Project Section -->
+       <section id="projects" class="projects">
+        <h2>Our Ventures</h2>
+        <div class="projects-container">
+            <div class="project">
+                <img src="slide2.jpeg" alt="Urban Town">
+                <h3>Grapsan RCC Hume Pipes </h3>
+                <p>Leading supplier for high quality RCC Hume Pipes</p>
+            </div>
+            <div class="project">
+                <img src="slide1.jpg" alt="Road Construction">
+                <h3>Grapsan Builders</h3>
+                <p>Transforming cities with sustainable and innovative urban infrastructure.</p>
+            </div>
+            <div class="project">
+                <img src="slide1.jpg" alt="Government School">
+                <h3>Grapsan Fuels</h3>
+                <p>Our recent venture to bring in to our city the sustainable fuels.</p>
+            </div>
+            <div class="project">
+                <img src="slide2.jpeg" alt="Urban Town">
+                <h3>Grapsan Builders also</h3>
+                <p>From modern high-rises to peaceful colonies, we focus on quality, sustainability, and thoughtful design. </p>
+            </div>
+        </div>
+    </section>
+    <style>
+        .projects {
+            background-color: #f5f5f5;
+            padding: 60px 20px;
+        }
+
+        .projects h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+
+
+    <!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Address</h3>
+            <p>Grapsan Office, Vivekanand Complex, Pipal Choraha<br>Biaora(Rajgarh), M.P.,India 465674</p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h3>Phone</h3>
+            <p><a href="tel:+911112223344">+91 942 542 3499</a></p>
+            <p><a href="tel:+919876543210">+91 999 366 3069</a></p>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p><a href="mailto:info@grapsonconstruction.com">grapsonconstruction@gmail.com</a></p>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-facebook-f"></i>
+            <h3>Facebook</h3>
+            <p><a href="https://facebook.com/grapsonconstruction" target="_blank">/grapsonconstruction</a></p>
+        </div>
+    </div>
+</section>
+    <!-- Footer Section -->
+    <!--
+    <footer>
+        <p>&copy; 2025 Construction Co. All rights reserved.</p>
+    </footer>
+    -->
+        <script>
+        const images = document.querySelectorAll('.hero img');
+        let currentIndex = 0;
+        setInterval(() => {
+            console.log('Switching to image index:', currentIndex); 
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 3000); // Change image every 4 seconds
+    </script>
+
+</body>
+</html>
+
